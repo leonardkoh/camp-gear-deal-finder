@@ -2,5 +2,12 @@ extends layout
 
 block content
   h1= title
-  p Clearance gear for your camping, trekking, hiking and outdoor needs
-  
+  p Clearance gear for your camping, trekking, hiking & outdoor needs
+  br
+  each val in blackwolfProducts
+    li 
+      p=val.title
+      p='$'+val.origPrice
+      p=val.salePrice
+    br
+

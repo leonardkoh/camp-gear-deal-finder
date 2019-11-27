@@ -3,7 +3,7 @@ var router = express.Router();
 var rp = require('request-promise');
 var cheerio = require('cheerio'); 
 
-let bwp = [];
+let blackwolfProducts = [];
 
 function scrapeBlackwolf() {
   var options = {
@@ -21,13 +21,13 @@ function scrapeBlackwolf() {
     let salePrices = $('.bc-product__price').text().split('\t').filter(e => { return e.match(/\S/); });
 
     for(let i=0; i<titles.length; i++) {
-      bwp.push({ title: titles[i],
+      blackwolfProducts.push({ title: titles[i],
         origPrice: originalPrices[i],
         salePrice: salePrices[i]
       })
     }
 
-    console.log(bwp)
+    console.log(blackwolfProducts)
   })
   .catch(function (err) {
     console.log(`${err}`)
@@ -38,7 +38,7 @@ scrapeBlackwolf();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Clearance Outdoor Gear', blackwolfProducts: bwp});
+  res.render('index', { title: 'Clearance Outdoor Gear', bwProducts: blackwolfProducts});
 });
 
 module.exports = router;
