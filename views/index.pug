@@ -1,13 +1,22 @@
 extends layout
 
 block content
+  div(class="btn-group")
+    button(type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")='Blackwolf'
+    div(class="dropdown-menu dropdown-menu-right")
+      button(class="dropdown-item" type="button")='Decathalon'
+      button(class="dropdown-item" type="button")='Anaconda'
   h1= title
   p Clearance gear for your camping, trekking, hiking & outdoor needs
   br
   each val in blackwolfProducts
     li 
-      p=val.title
-      p='$'+val.origPrice
-      p=val.salePrice
+      div(class='row')
+        div(class='col')
+          h2
+            a(href=val.prodURL)=val.title
+        div(class='col')
+          img(class='imgThumb' src=val.prodImage)
+      strike='$'+val.origPrice
+      h4=val.salePrice
     br
-
