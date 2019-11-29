@@ -45,7 +45,7 @@ scrapeBlackwolf();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Clearance Outdoor Gear', blackwolfProducts: bwp});
+  res.render('index', { title: 'Outdoor Gear Bargains', blackwolfProducts: bwp});
 });
 
 module.exports = router;

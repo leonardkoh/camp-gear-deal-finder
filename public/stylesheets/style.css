@@ -1,17 +1,23 @@
-body {
-  background: white;
-  padding: 5%;
+body {  background: white; } 
+
+.content { background: white; }
+
+a { color: #28a745; }
+
+h1 { font-size: 1.5rem; }
+h2, h3 { font-size: 1.1rem; color: gray; }
+p { color: #333; margin-bottom: 0.5rem; }
+
+.dropdown-menu { background: #f6f6f6 }
+
+li { list-style: none; }
+
+strike { color: gray; }
+
+.imgThumb { 
+  width: 25vw; 
 }
 
-a {
-  color: #28a745;
-}
-
-li {
-  list-style: none;
-}
-
-.imgThumb {
-  /* height: 20%; */
-  width: 40vw;
+.header {
+  background: lightgray;
 }
