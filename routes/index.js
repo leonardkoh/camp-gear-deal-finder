@@ -15,11 +15,8 @@ function scrapeBlackwolf() {
   
   rp(options)
   .then(function ($) {
-
     let titles = $('.title-prd').text().split('\t').filter(e => { return e.match(/\S/); });
-    let originalPrices = $('.bc-product__original-price').text().split(/[$]/); 
-      originalPrices.shift();
-    let salePrices = $('.bc-product__price').text().split('\t').filter(e => { return e.match(/\S/); });
+    let salePrices = $('.bc-product__price').text().split(/[$]/).filter(e => { return e.match(/\S/); });
     let prodImages = [];
     let prodURLs = [];
 
@@ -29,7 +26,6 @@ function scrapeBlackwolf() {
     })
     for(let i=0; i<titles.length; i++) {
       bwp.push({ title: titles[i],
-        origPrice: originalPrices[i],
         salePrice: salePrices[i],
         prodImage: prodImages[i],
         prodURL: prodURLs[i]
@@ -45,7 +41,7 @@ scrapeBlackwolf();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Outdoor Gear Bargains', blackwolfProducts: bwp});
+  res.render('index', { title: 'Blackwolf', blackwolfProducts: bwp});
 });
 
 module.exports = router;
