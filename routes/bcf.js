@@ -29,7 +29,6 @@ function scrapebcf() {
     for(let i=0; i<titles.length; i++) {
       bcfp.push({ title: titles[i],
         brand: brands[i],
-        // origPrice: originalPrices[i],
         salePrice: salePrices[i],
         prodImage: prodImages[i],
         prodURL: prodURLs[i]
