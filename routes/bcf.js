@@ -5,7 +5,7 @@ var cheerio = require('cheerio');
 
 let bcfp = [];
 
-function scrapebcf() {
+function scrapeBcf() {
   var options = {
     uri: 'https://www.bcf.com.au/catalogue-sale',
     transform: function (body) {
@@ -32,14 +32,14 @@ function scrapebcf() {
         prodURL: prodURLs[i]
       })
     }
-    console.log(prodImages.length);
+    // console.log(prodImages.length);
   })
   .catch(function (err) {
     console.log(`${err}`)
   });
 }
 
-scrapebcf();
+scrapeBcf();
 
 router.get('/', function(req, res, next) {
   res.render('bcf', { title: 'BCF', bcfProducts: bcfp});

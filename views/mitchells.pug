@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  div(class="content")
+    h1(class="text-center")=title
+    div(class="ml-3")
+      //- each val in bcfProducts
+        li(class="mb-4")
+          div(class="row")
+            div(class="col-3")
+              a(href=val.prodURL target="blank")
+                img(class="imgThumb" src=val.prodImage)
+            div(class="col-9 pl-4")
+              u
+                a(class="text-dark" href=val.prodURL target="blank")=val.title
+              p(class='text-success font-weight-bold')='$'+val.salePrice
