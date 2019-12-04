@@ -1,19 +1,23 @@
 extends layout
 
 block content
-  h1(class="text-center")=title
-  div(class="ml-3")
-    each val in blackwolfProducts
-      li(class="mb-4")
-        div(class="row")
-          div(class="col-3")
-            a(href=val.prodURL target="blank")
-              img(class="imgThumb" src=val.prodImage)
-          div(class="col-9 pl-3")
-            p
-              u
-                a(href=val.prodURL target="blank")=val.title
-            div(class="row ml-1")
-              p='$'+val.salePrice
-            a(href=val.prodURL target="blank")
-              button(class="btn btn-outline-success seeMoreBtn")="See more"
+  div(class="content")
+    h1(class="text-center")=title
+    if blackwolfProducts.length===0
+      p(class="text-center")="There are no products on clearance"
+    else
+      div(class="ml-3")
+        each val in blackwolfProducts
+          li(class="mb-4")
+            div(class="row")
+              div(class="col-3")
+                a(href=val.prodURL target="blank")
+                  img(class="imgThumb" src=val.prodImage)
+              div(class="col-9 pl-3")
+                p
+                  u
+                    a(href=val.prodURL target="blank")=val.title
+                div(class="row ml-1")
+                  p='$'+val.salePrice
+                a(href=val.prodURL target="blank")
+                  button(class="btn btn-outline-success seeMoreBtn")="See more"

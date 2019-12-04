@@ -10,12 +10,7 @@ block content
             div(class="col-3")
               a(href=val.prodURL target="blank")
                 img(class="imgThumb" src=val.prodImage)
-            div(class="col-9 pl-3")
-              p
-                u
-                  a(href=val.prodURL target="blank")=val.title
-              p=val.brand
-              div(class="row ml-1")
-                p='$'+val.salePrice
-              a(href=val.prodURL target="blank")
-                button(class="btn btn-outline-success seeMoreBtn")="See more"
+            div(class="col-9 pl-4")
+              u
+                a(class="text-dark" href=val.prodURL target="blank")=val.title
+              p(class='text-success font-weight-bold')='$'+val.salePrice

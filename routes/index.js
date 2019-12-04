@@ -19,7 +19,7 @@ function scrapeBlackwolf() {
     let salePrices = $('.bc-product__price').text().split(/[$]/).filter(e => { return e.match(/\S/); });
     let prodImages = [];
     let prodURLs = [];
-
+    
     $('.bc-product-card__featured-image').each((i,e)=>{
         prodImages.push($(e).find('img').attr('src'));
         prodURLs.push($(e).find('a').attr('href'));

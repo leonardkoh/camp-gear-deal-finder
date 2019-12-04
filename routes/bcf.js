@@ -16,24 +16,23 @@ function scrapebcf() {
   rp(options)
   .then(function ($) {
     let titles = $('.product-name').text().split('\n').filter(e => { return e.match(/\S/); });
-    let brands = $('.brand-name').text().split('\n').filter(e => { return e.match(/\S/); });
     let salePrices = $('.product-sales-price').text().split(/[$]/); 
       salePrices.shift();
     
     let prodImages = [];
     let prodURLs = [];
     
-    $('.thumb-link').find('img').each((i,e) => { prodImages.push($(e).attr('src')); });
+    $('.thumb-link').find('.img-fading.top').each((i,e) => { prodImages.push($(e).attr('src')); });
     $('.thumb-link').each((i,e) => { prodURLs.push($(e).attr('href')); });
 
     for(let i=0; i<titles.length; i++) {
       bcfp.push({ title: titles[i],
-        brand: brands[i],
         salePrice: salePrices[i],
         prodImage: prodImages[i],
         prodURL: prodURLs[i]
       })
     }
+    console.log(prodImages.length);
   })
   .catch(function (err) {
     console.log(`${err}`)
