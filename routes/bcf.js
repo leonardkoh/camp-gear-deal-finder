@@ -42,7 +42,7 @@ function scrapeBcf() {
 scrapeBcf();
 
 router.get('/', function(req, res, next) {
-  res.render('bcf', { title: 'BCF', bcfProducts: bcfp});
+  res.render('content', { title: 'BCF', products: bcfp});
 });
 
 module.exports = router;

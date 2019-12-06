@@ -41,7 +41,7 @@ scrapeBlackwolf();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Blackwolf', blackwolfProducts: bwp});
+  res.render('content', { title: 'Blackwolf', products: bwp});
 });
 
 module.exports = router;

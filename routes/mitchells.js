@@ -3,7 +3,7 @@ var router = express.Router();
 var rp = require('request-promise');
 var cheerio = require('cheerio'); 
 
-let mitchp = [];
+let prods = [];
 
 function scrapeMitchells() {
   var options = {
@@ -15,27 +15,32 @@ function scrapeMitchells() {
   
   rp(options)
   .then(function ($) {
-    let titles = $('.product-name').text().split('\n').filter(e => { return e.match(/\S/); });
-    // let salePrices = $('.product-sales-price').text().split(/[$]/); 
-      // salePrices.shift();
+    let salePrices = $('.onsale').text().split(/[$]/); 
+      salePrices.shift();
     
-    // let prodImages = [];
-    // let prodURLs = [];
+    let prodImages = [];
+    let prodURLs = [];
     
-    // $('.thumb-link').find('.img-fading.top').each((i,e) => { prodImages.push($(e).attr('src')); });
+    $('a').find('.img-responsive').each((i,e) => { prodImages.push($(e).attr('src')); });
+    $('.stylesummaryimageholder').find('a').each((i,e) => { prodURLs.push($(e).attr('href')); });
     // $('.thumb-link').each((i,e) => { prodURLs.push($(e).attr('href')); });
+    let titles = [];
+    $('span').find('a').map((i,e) => { titles.push($(e).attr('title')); });
+    titles = titles.slice(10,titles.length-1).filter((e,i) => { if(e !== undefined) return e; });
+    prodImages = prodImages.slice(2)
+    for(let i=0; i<titles.length; i++) {
+      prods.push({ title: titles[i],
+        salePrice: salePrices[i],
+        prodImage: prodImages[i],
+        prodURL: prodURLs[i]
+      })
+    }
+    
+    console.log(titles.length);
+    console.log(salePrices.length);
+    console.log(prodURLs.length);
+    console.log(prodImages.length);
 
-    // for(let i=0; i<titles.length; i++) {
-      // bcfp.push({ title: titles[i],
-        // salePrice: salePrices[i],
-        // prodImage: prodImages[i],
-        // prodURL: prodURLs[i]
-      // })
-    // }
-    let m = [];
-    $('span').find('a').map((i,e) => { m.push($(e).attr('title')); });
-    m = m.slice(10).filter((e,i) => { console.log(e === underfined ? true: false) });
-    console.log();
   })
   .catch(function (err) {
     console.log(`${err}`)
@@ -45,7 +50,7 @@ function scrapeMitchells() {
 scrapeMitchells();
 
 router.get('/', function(req, res, next) {
-  res.render('mitchells', { title: 'Mitchells Adventure', mitchProducts: mitchp});
+  res.render('content', { title: 'Mitchells Adventure', products: prods});
 });
 
 module.exports = router;
