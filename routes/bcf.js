@@ -32,7 +32,6 @@ function scrapeBcf() {
         prodURL: prodURLs[i]
       })
     }
-    // console.log(prodImages.length);
   })
   .catch(function (err) {
     console.log(`${err}`)

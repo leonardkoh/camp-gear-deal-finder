@@ -44,8 +44,8 @@ function scrapeWildEarth() {
 scrapeWildEarth();
 
 router.get('/', function(req, res, next) {
-  res.render('content', { title: 'Wild Earth',
-  image: 'https://www.identitymagazine.net/wp-content/uploads/2018/02/shutterstock_325000985.jpg'});
+  res.render('maintenance', { title: 'Kathmandu', 
+  image: 'https://www.gapyear.com/wp-content/uploads/2010/03/23_AdobeStock_133258459_solo-female-travel-backpacking_02-08-17.jpg'});
 });
 
 module.exports = router;

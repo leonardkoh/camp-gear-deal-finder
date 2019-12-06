@@ -19,12 +19,12 @@ function scrapeMitchells() {
       salePrices.shift();
     
     let prodImages = [];
+      $('a').find('.img-responsive').each((i,e) => { prodImages.push('https://www.mitchellsadventure.com/'+$(e).attr('src')); });
     let prodURLs = [];
+      $('.stylesummaryimageholder').find('a').each((i,e) => { prodURLs.push($(e).attr('href')); });
     
-    $('a').find('.img-responsive').each((i,e) => { prodImages.push($(e).attr('src')); });
-    $('.stylesummaryimageholder').find('a').each((i,e) => { prodURLs.push($(e).attr('href')); });
-    // $('.thumb-link').each((i,e) => { prodURLs.push($(e).attr('href')); });
     let titles = [];
+    
     $('span').find('a').map((i,e) => { titles.push($(e).attr('title')); });
     titles = titles.slice(10,titles.length-1).filter((e,i) => { if(e !== undefined) return e; });
     prodImages = prodImages.slice(2)
@@ -35,12 +35,6 @@ function scrapeMitchells() {
         prodURL: prodURLs[i]
       })
     }
-    
-    console.log(titles.length);
-    console.log(salePrices.length);
-    console.log(prodURLs.length);
-    console.log(prodImages.length);
-
   })
   .catch(function (err) {
     console.log(`${err}`)

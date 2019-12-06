@@ -44,8 +44,8 @@ function scrapeWildEarth() {
 scrapeWildEarth();
 
 router.get('/', function(req, res, next) {
-  res.render('content', { title: 'Wild Earth',
-  image: 'https://www.identitymagazine.net/wp-content/uploads/2018/02/shutterstock_325000985.jpg'});
+  res.render('maintenance', { title: 'Macpac',
+  image: 'https://d1bv4heaa2n05k.cloudfront.net/user-images/1531729141976/shutterstock-1030050604_main_1531729223400.jpeg'});
 });
 
 module.exports = router;

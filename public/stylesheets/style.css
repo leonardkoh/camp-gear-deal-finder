@@ -11,5 +11,7 @@ li { list-style: none; }
 .content { background: white; }
 .dropdown-menu { background: #f6f6f6 }
 .imgThumb { width: 25vw; }
-/* .seeMoreBtn { padding: .15rem .10rem } */
+.maint { color: grey }
+.maintImage { color: grey }
+
 .priceStyle {color: #28a745}

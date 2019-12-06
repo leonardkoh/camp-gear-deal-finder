@@ -8,6 +8,10 @@ var indexRouter = require('./routes/index');
 var bcf = require('./routes/bcf');
 var wildearth = require('./routes/wildearth');
 var mitchells = require('./routes/mitchells');
+var anaconda = require('./routes/anaconda');
+var kathmandu = require('./routes/kathmandu');
+var macpac = require('./routes/macpac');
+
 // var usersRouter = require('./routes/users');
 
 var app = express();
@@ -26,6 +30,9 @@ app.use('/', indexRouter);
 app.use('/bcf', bcf);
 app.use('/wildearth', wildearth);
 app.use('/mitchells', mitchells);
+app.use('/anaconda', anaconda);
+app.use('/kathmandu', kathmandu);
+app.use('/macpac', macpac);
 // app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

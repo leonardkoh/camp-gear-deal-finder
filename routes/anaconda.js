@@ -44,8 +44,8 @@ function scrapeWildEarth() {
 scrapeWildEarth();
 
 router.get('/', function(req, res, next) {
-  res.render('content', { title: 'Wild Earth',
-  image: 'https://www.identitymagazine.net/wp-content/uploads/2018/02/shutterstock_325000985.jpg'});
+  res.render('maintenance', { title: 'Anaconda', 
+  image: 'https://www.worldtravelguide.net/wp-content/uploads/2018/09/shu-gen-Woman-hiking-Himalayas-363610262-1440x823.jpg'});
 });
 
 module.exports = router;
